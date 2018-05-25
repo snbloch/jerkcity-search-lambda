@@ -10,16 +10,12 @@ def jerksearch(event, context):
     querystring = urllib.urlencode(event)
     url = url + querystring
     page = pq(url=url)
-    for i in page.items('a'):
-        if '.html' in i.attr['href']:
-            quotes.add(i.attr['href'])
+    for i in page.items('img'):
+        if '.gif' in i.attr['src']:
+            quotes.add(i.attr['src'])
     if len(quotes) > 0:
         quotes = list(quotes)
         random_quote = quotes[randint(0, len(quotes) - 1)]
-        url = 'http://www.jerkcity.com' + random_quote
-        page = pq(url=url)
-        for i in page.items('.aidsy'):
-            image = i.attr['src']
-            return 'http://www.jerkcity.com' + image
+        return 'http://www.jerkcity.com' + random_quote        
     else:
         return 'No result found for query ' + event['q']
