@@ -3,7 +3,7 @@ from random import randint
 import urllib
 
 def jerksearch(event, context):
-    url = 'https://www.jerkcity.com/search/?'
+    url = 'https://www.bonequest.com/search/?'
     quotes = set([])
     if event.get('q') is None and len(event.get('text')) != 0:
         event['q'] = event.pop('text')
@@ -16,6 +16,6 @@ def jerksearch(event, context):
     if len(quotes) > 0:
         quotes = list(quotes)
         random_quote = quotes[randint(0, len(quotes) - 1)]
-        return 'http://www.jerkcity.com' + random_quote        
+        return 'http://www.bonequest.com' + random_quote        
     else:
         return 'No result found for query ' + event['q']
