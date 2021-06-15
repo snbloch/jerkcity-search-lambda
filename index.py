@@ -7,7 +7,7 @@ def jerksearch(event, context):
     quotes = set([])
     if event.get('q') is None and len(event.get('text')) != 0:
         event['q'] = event.pop('text')
-    querystring = urllib.urlencode(event)
+    querystring = urllib.parse.urlencode(event)
     url = url + querystring
     page = pq(url=url)
     for i in page.items('img'):
