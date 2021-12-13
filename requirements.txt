@@ -1,4 +1,4 @@
 ## The following requirements were added by pip freeze:
 cssselect==1.1.0
-lxml==4.6.3
+lxml==4.6.5
 pyquery==1.4.3
